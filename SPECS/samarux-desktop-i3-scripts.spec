@@ -1,6 +1,6 @@
 Name:           samarux-desktop-i3-scripts
 Version:        0.1
-Release:        22
+Release:        24
 Summary:        Auxiliary scripts for samarux-desktop-i3 environment
 License:        GPL
 Source: 	%{name}-%{version}.tar.gz
@@ -43,6 +43,12 @@ from the awesome Regolith project (https://regolith-linux.org/)
 /usr/bin/toggle-picom.sh
 
 %changelog
+* Sun Apr 11 2021 Enrique Gil <mahoul@gmail.com> - 0.1-24
+- Replaced prep section with autosetup
+
+* Sun Apr 11 2021 Enrique Gil (mahoul@gmail.com) - 0.1-23
+- Test build with hybrid prep section
+
 * Sun Apr 11 2021 Enrique Gil (mahoul@gmail.com) - 0.1-23
 - Updated prep section to use autosetup.
 
