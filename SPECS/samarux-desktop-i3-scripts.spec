@@ -15,8 +15,9 @@ Most of the files for this are minimal tweaked versions from files
 from the awesome Regolith project (https://regolith-linux.org/)
 
 %prep
-[ -d %{name} ] && rm -Rfv %{name}
-[ -d %{_topdir}/SOURCES ] && rsync -avP --exclude '.git' --delete %{_topdir}/SOURCES/ .
+#[ -d %{name} ] && rm -Rfv %{name}
+#[ -d %{_topdir}/SOURCES ] && rsync -avP --exclude '.git' --delete %{_topdir}/SOURCES/ .
+%autosetup
 
 
 %install
@@ -42,6 +43,9 @@ from the awesome Regolith project (https://regolith-linux.org/)
 /usr/bin/toggle-picom.sh
 
 %changelog
+* Sun Apr 11 2021 Enrique Gil (mahoul@gmail.com) - 0.1-23
+- Updated prep section to use autosetup.
+
 * Sun Apr 11 2021 Enrique Gil (mahoul@gmail.com) - 0.1-22
 - Renamed pkg to samarux-desktop-i3-scripts
 
