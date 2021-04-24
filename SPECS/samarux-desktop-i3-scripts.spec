@@ -1,6 +1,6 @@
 Name:           samarux-desktop-i3-scripts
 Version:        0.1
-Release:        24
+Release:        25
 Summary:        Auxiliary scripts for samarux-desktop-i3 environment
 License:        GPL
 Source: 	%{name}-%{version}.tar.gz
@@ -21,28 +21,36 @@ from the awesome Regolith project (https://regolith-linux.org/)
 
 
 %install
-%{__install} -D -m755 usr/bin/bing_wallpaper.py 	 %{buildroot}/usr/bin/bing_wallpaper.py
+%{__install} -D -m644 etc/systemd/system/get-bing-potd.service	%{buildroot}/etc/systemd/system/get-bing-potd.service
+%{__install} -D -m644 etc/systemd/system/get-bing-potd.timer	%{buildroot}/etc/systemd/system/get-bing-potd.timer
 %{__install} -D -m755 usr/bin/dmenu_hotkeys.py		 %{buildroot}/usr/bin/dmenu_hotkeys.py
-%{__install} -D -m755 usr/bin/samarux-looks.sh		 %{buildroot}/usr/bin/samarux-looks.sh
+%{__install} -D -m755 usr/bin/get-bing-potd.sh	 	 %{buildroot}/usr/bin/get-bing-potd.sh
 %{__install} -D -m755 usr/bin/polybar-launch.sh		 %{buildroot}/usr/bin/polybar-launch.sh
+%{__install} -D -m755 usr/bin/samarux-looks.sh		 %{buildroot}/usr/bin/samarux-looks.sh
 %{__install} -D -m755 usr/bin/set-bing-wallpaper.sh	 %{buildroot}/usr/bin/set-bing-wallpaper.sh
 %{__install} -D -m755 usr/bin/system-fan-speed.sh	 %{buildroot}/usr/bin/system-fan-speed.sh
 %{__install} -D -m755 usr/bin/toggle-picom.sh		 %{buildroot}/usr/bin/toggle-picom.sh
+
 
 %clean
 
 
 %files
 %defattr(-, root, root)
-/usr/bin/bing_wallpaper.py
+/etc/systemd/system/get-bing-potd.service
+/etc/systemd/system/get-bing-potd.timer  
 /usr/bin/dmenu_hotkeys.py
-/usr/bin/samarux-looks.sh
+/usr/bin/get-bing-potd.sh
 /usr/bin/polybar-launch.sh
+/usr/bin/samarux-looks.sh
 /usr/bin/set-bing-wallpaper.sh
 /usr/bin/system-fan-speed.sh
 /usr/bin/toggle-picom.sh
 
 %changelog
+* Sat Apr 24 2021 Enrique Gil <mahoul@gmail.com> - 0.1-25
+- Replaced bing wallpaper scripts and added systemd services
+
 * Sun Apr 11 2021 Enrique Gil <mahoul@gmail.com> - 0.1-24
 - Replaced prep section with autosetup
 
