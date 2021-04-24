@@ -28,3 +28,9 @@ gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
 # Disable input switch via Super+Space
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source '[]'
 gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward '[]'
+
+# Set blurred wallpaper on screensaver
+WALLPAPER_BLURRED=$HOME/.wallpaper_blurred.png
+
+gsettings set org.gnome.desktop.screensaver picture-uri "file://$WALLPAPER_BLURRED"
+
