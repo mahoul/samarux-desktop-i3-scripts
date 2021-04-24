@@ -109,8 +109,6 @@ if [ ! -s $BING_IMG ]; then
 	BING_IMG_COMMENT=$(get_img_copyright)
 
 	get_img_file "$BING_IMG_URL" "$BING_IMG_COMMENT" "$BING_IMG"
-else
-	die "" 0
 fi
 
 # Symlink the POTD as today.png.

@@ -31,6 +31,15 @@ from the awesome Regolith project (https://regolith-linux.org/)
 %{__install} -D -m755 usr/bin/system-fan-speed.sh	 %{buildroot}/usr/bin/system-fan-speed.sh
 %{__install} -D -m755 usr/bin/toggle-picom.sh		 %{buildroot}/usr/bin/toggle-picom.sh
 
+%post
+if [ $1 -gt 1 ]; then
+	systemctl enable get-bing-potd.timer
+fi
+
+%preun
+if [ $1 -eq 0 ]; then
+	systemctl disable get-bing-potd.timer
+fi
 
 %clean
 
