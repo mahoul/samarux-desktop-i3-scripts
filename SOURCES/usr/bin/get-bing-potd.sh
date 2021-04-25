@@ -2,6 +2,9 @@
 
 die(){
 	echo -e $1
+	# Remove temp file and quit.
+	#
+	[ -f $BING_XML ] && rm -f $BING_XML
 	exit $2
 }
 
@@ -117,10 +120,6 @@ if [ -s $BING_IMG ]; then
        ln -sf $BING_IMG $BING_IMG_TODAY
        ln -sf $BING_IMG $DEFAULT_WALLPAPER
 fi
-
-# Remove temp file and quit.
-#
-[ -f $BING_XML ] && rm -f $BING_XML
 
 die "" 0
 
