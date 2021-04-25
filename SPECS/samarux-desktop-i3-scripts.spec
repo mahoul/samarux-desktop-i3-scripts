@@ -1,6 +1,6 @@
 Name:           samarux-desktop-i3-scripts
 Version:        0.1
-Release:        27
+Release:        28
 Summary:        Auxiliary scripts for samarux-desktop-i3 environment
 License:        GPL
 Source: 	%{name}-%{version}.tar.gz
@@ -57,6 +57,9 @@ fi
 /usr/bin/toggle-picom.sh
 
 %changelog
+* Sun Apr 25 2021 Enrique Gil <mahoul@gmail.com> - 0.1-28
+- Fixed TMP file removal on get-bing-potd.sh script
+
 * Sun Apr 25 2021 Enrique Gil <mahoul@gmail.com> - 0.1-27
 - Fixed TMP file removal on get-bing-potd.sh script
 

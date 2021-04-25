@@ -9,6 +9,7 @@ if [ $# -eq 1 ] && [ -s $SPEC_FILE ]; then
 	rpmdev-bumpspec -c "$COMMENT" $SPEC_FILE
 	git add .
 	git commit -m "$COMMENT"
+	git push
 
 fi
 
