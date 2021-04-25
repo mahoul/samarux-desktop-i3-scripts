@@ -1,6 +1,6 @@
 Name:           samarux-desktop-i3-scripts
 Version:        0.1
-Release:        28
+Release:        29
 Summary:        Auxiliary scripts for samarux-desktop-i3 environment
 License:        GPL
 Source: 	%{name}-%{version}.tar.gz
@@ -32,14 +32,7 @@ from the awesome Regolith project (https://regolith-linux.org/)
 %{__install} -D -m755 usr/bin/toggle-picom.sh		 %{buildroot}/usr/bin/toggle-picom.sh
 
 %post
-if [ $1 -gt 1 ]; then
-	systemctl enable get-bing-potd.timer
-fi
-
-%preun
-if [ $1 -eq 0 ]; then
-	systemctl disable get-bing-potd.timer
-fi
+systemctl enable get-bing-potd.timer
 
 %clean
 
@@ -57,6 +50,9 @@ fi
 /usr/bin/toggle-picom.sh
 
 %changelog
+* Sun Apr 25 2021 Enrique Gil <mahoul@gmail.com> - 0.1-29
+- Fixed post install script on package
+
 * Sun Apr 25 2021 Enrique Gil <mahoul@gmail.com> - 0.1-28
 - Fixed TMP file removal on get-bing-potd.sh script
 
