@@ -1,6 +1,6 @@
 Name:           samarux-desktop-i3-scripts
 Version:        0.1
-Release:        29
+Release:        30
 Summary:        Auxiliary scripts for samarux-desktop-i3 environment
 License:        GPL
 Source: 	%{name}-%{version}.tar.gz
@@ -50,6 +50,9 @@ systemctl enable get-bing-potd.timer
 /usr/bin/toggle-picom.sh
 
 %changelog
+* Sat May 01 2021 Enrique Gil <mahoul@gmail.com> - 0.1-30
+- Increased release
+
 * Sun Apr 25 2021 Enrique Gil <mahoul@gmail.com> - 0.1-29
 - Fixed post install script on package
 
