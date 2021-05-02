@@ -1,6 +1,6 @@
 Name:           samarux-desktop-i3-scripts
 Version:        0.1
-Release:        31
+Release:        32
 Summary:        Auxiliary scripts for samarux-desktop-i3 environment
 License:        GPL
 Source: 	%{name}-%{version}.tar.gz
@@ -29,7 +29,7 @@ from the awesome Regolith project (https://regolith-linux.org/)
 %{__install} -D -m755 usr/bin/toggle-picom.sh		  %{buildroot}/usr/bin/toggle-picom.sh
 
 %post
-dconf update
+[ -s /etc/dconf/db/distro ] && dconf update
 
 %clean
 
@@ -43,6 +43,9 @@ dconf update
 /usr/bin/toggle-picom.sh
 
 %changelog
+* Sun May 02 2021 Enrique Gil <mahoul@gmail.com> - 0.1-32
+- Run only dconf update if distro DB exists
+
 * Sun May 02 2021 Enrique Gil <mahoul@gmail.com> - 0.1-31
 - Moved gsettings calls to dconf system wide defaults
 
