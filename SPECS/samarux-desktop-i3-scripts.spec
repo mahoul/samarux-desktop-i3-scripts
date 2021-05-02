@@ -1,6 +1,6 @@
 Name:           samarux-desktop-i3-scripts
 Version:        0.1
-Release:        30
+Release:        31
 Summary:        Auxiliary scripts for samarux-desktop-i3 environment
 License:        GPL
 Source: 	%{name}-%{version}.tar.gz
@@ -21,35 +21,31 @@ from the awesome Regolith project (https://regolith-linux.org/)
 
 
 %install
-%{__install} -D -m644 etc/systemd/system/get-bing-potd.service	%{buildroot}/etc/systemd/system/get-bing-potd.service
-%{__install} -D -m644 etc/systemd/system/get-bing-potd.timer	%{buildroot}/etc/systemd/system/get-bing-potd.timer
-%{__install} -D -m755 usr/bin/dmenu_hotkeys.py		 %{buildroot}/usr/bin/dmenu_hotkeys.py
-%{__install} -D -m755 usr/bin/get-bing-potd.sh	 	 %{buildroot}/usr/bin/get-bing-potd.sh
-%{__install} -D -m755 usr/bin/polybar-launch.sh		 %{buildroot}/usr/bin/polybar-launch.sh
-%{__install} -D -m755 usr/bin/samarux-looks.sh		 %{buildroot}/usr/bin/samarux-looks.sh
-%{__install} -D -m755 usr/bin/set-bing-wallpaper.sh	 %{buildroot}/usr/bin/set-bing-wallpaper.sh
-%{__install} -D -m755 usr/bin/system-fan-speed.sh	 %{buildroot}/usr/bin/system-fan-speed.sh
-%{__install} -D -m755 usr/bin/toggle-picom.sh		 %{buildroot}/usr/bin/toggle-picom.sh
+%{__install} -D -m644 etc/dconf/db/distro.d/00-samarux-i3 %{buildroot}/etc/dconf/db/distro.d/00-samarux-i3
+%{__install} -D -m755 usr/bin/dmenu_hotkeys.py		  %{buildroot}/usr/bin/dmenu_hotkeys.py
+%{__install} -D -m755 usr/bin/polybar-launch.sh		  %{buildroot}/usr/bin/polybar-launch.sh
+%{__install} -D -m755 usr/bin/set-bing-wallpaper.sh	  %{buildroot}/usr/bin/set-bing-wallpaper.sh
+%{__install} -D -m755 usr/bin/system-fan-speed.sh	  %{buildroot}/usr/bin/system-fan-speed.sh
+%{__install} -D -m755 usr/bin/toggle-picom.sh		  %{buildroot}/usr/bin/toggle-picom.sh
 
 %post
-systemctl enable get-bing-potd.timer
+dconf update
 
 %clean
 
-
 %files
 %defattr(-, root, root)
-/etc/systemd/system/get-bing-potd.service
-/etc/systemd/system/get-bing-potd.timer  
+/etc/dconf/db/distro.d/00-samarux-i3
 /usr/bin/dmenu_hotkeys.py
-/usr/bin/get-bing-potd.sh
 /usr/bin/polybar-launch.sh
-/usr/bin/samarux-looks.sh
 /usr/bin/set-bing-wallpaper.sh
 /usr/bin/system-fan-speed.sh
 /usr/bin/toggle-picom.sh
 
 %changelog
+* Sun May 02 2021 Enrique Gil <mahoul@gmail.com> - 0.1-31
+- Moved gsettings calls to dconf system wide defaults
+
 * Sat May 01 2021 Enrique Gil <mahoul@gmail.com> - 0.1-30
 - Increased release
 

@@ -1,0 +1,12 @@
+[org/gnome/gnome-flashback]
+desktop=false
+notifications=false
+status-notifier-watcher=false
+
+[org/gnome/desktop/wm/keybindings]
+switch-input-source=['']
+switch-input-source-backward=['']
+
+[org/gnome/screensaver]
+picture-uri="file:///usr/share/backgrounds/default_blurred.png"
+
